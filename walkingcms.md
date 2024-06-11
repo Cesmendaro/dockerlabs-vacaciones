@@ -1,5 +1,5 @@
 ---
-Nombre de la máquina: Trust
+Nombre de la máquina: WalkingCms
 Sistema Operativo: Linux
 Dificultad: Facil 🟢
 Enlace de descarga: https://dockerlabs.es
@@ -10,7 +10,7 @@ Enlace de descarga: https://dockerlabs.es
 Para comenzar, es necesario ubicarnos en la ruta donde hemos descargado y descomprimido la máquina. Una vez allí, procedemos a ejecutarla utilizando el siguiente comando.
 
 ```
-sudo bash auto_deploy.sh trust.tar
+sudo bash auto_deploy.sh walkingcms.tar
 ```
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/0f57257c-8dd6-4a89-acac-94073fb9fe82)
