@@ -29,12 +29,10 @@ nmap -p- --open -sS -sC -sV --min-rate 5000 -n -vvv -Pn 172.17.0.2
 
 El escaneo revela la existencia del puerto 80 abierto, donde se está ejecutando un servidor Apache versión 2.4.57. Por consiguiente, procedemos a inspeccionar la aplicación web para determinar su contenido y funcionalidades.
 
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/7cbb281a-b793-42f5-aa2b-609e3639673b)
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/5edfbc09-1ed0-41ce-8472-f04bb8b9887a)
 
 
 Hemos verificado que se trata de la plantilla predeterminada de Apache. Tras revisar su código fuente sin encontrar elementos destacables, es hora de proceder con el fuzzing.
-
-![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/5edfbc09-1ed0-41ce-8472-f04bb8b9887a)
 
 ## Fuzzing.
 
