@@ -133,14 +133,14 @@ Como podemos ver, disponemos de una lista de binarios que pueden ser ejecutados 
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/eec695f8-f6c4-41ec-bf83-c80a51ad1dc4)
 
-Copiamos el codigo que nos dice en la seccion de SUID y copiamos dicho codigo pero estableciendo la ruta absluta del binario.
+Copiamos el codigo que nos dice en la seccion de SUID y pegamos en el terminal pero estableciendo la ruta absluta del binario.
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/f082b4a9-731c-4617-94b5-6137aaaee3f0)
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/aeabde0f-4792-452f-823a-eaf698de0de1)
 
 Y como podemos ver, ya somos root.
-Maquina 100% hackeada.
+
 
 
 
