@@ -53,13 +53,11 @@ Al parecer, se trata de un blog sin mucha información relevante. Únicamente ve
 
 Bien, contamos únicamente con un nombre de usuario, pero ningún panel de login para intentar un ataque de fuerza bruta. Por lo tanto, volvemos a realizar fuzzing, pero esta vez lo hacemos a partir del directorio "wordpress".
 
-Es muy importante lo que nos ha encontrado el escaneo. No solo contamos con el panel de login predeterminado de WordPress activo, sino que también está activo el protocolo XML-RPC. Esto nos confirma que podremos realizar un ataque de fuerza bruta.
-
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/5d0e16a5-4bb7-41e3-a357-818c34756168)
-
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/bba021cc-d93e-4508-9295-c960a05356b6)
 
+Es muy importante lo que nos ha encontrado el escaneo. No solo contamos con el panel de login predeterminado de WordPress activo, sino que también está activo el protocolo XML-RPC. Esto nos confirma que podremos realizar un ataque de fuerza bruta.
 
 ## Wpscan.
 
@@ -73,45 +71,9 @@ sudo wpscan --url http://172.17.0.2/wordpress/ -U mario -P /usr/share/wordlists/
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/94c4ef3c-5dc7-4ba9-8925-28bab604fa22)
 
-Ahora que disponemos del nombre de usuario y la contraseña, procederemos a establecer una conexión SSH.
+Ahora que disponemos del nombre de usuario y la contraseña, nos logueamos en dicho panel de autenticación.
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/9a41173f-b897-4dfa-8ea9-a8a4ed013b64)
 
 
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/902181d4-5fdc-4246-8ee0-c0646d07d175)
-
-
-## Escalada de privilegios.
-
-Una vez dentro y bajo el usuario "mario", el siguiente paso es intentar escalar privilegios. Para ello, ejecutaremos el comando `sudo -l`para ver qué comandos puede ejecutar el usuario "mario" como root.
-
-
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/e5325cdb-915f-4cef-a2cd-efea05febd3f)
-
-
-Perfecto, vamos a buscar en el sitio web https://gtfobins.github.io/ si encontramos algún comando que nos permita escalar privilegios utilizando el editor vim.
-
-```
-sudo vim -c ':!/bin/sh'
-```
-
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/47631fb5-0fdc-4697-8d68-263c28b8f9e2)
-
-Entendido, parece que podemos obtener una shell, pero para ejecutarlo correctamente necesitamos especificar la ruta absoluta del comando.
-
-```
-sudo /usr/bin/vim -c ':!/bin/sh'
-```
-
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/79e850fd-ef92-4edc-8394-99115a1a9839)
-
-## Tratamiento de la TTY
-
-Una vez completado este paso, hemos obtenido privilegios de root. Ahora solo nos queda realizar el tratamiento de la TTY para tener una interacción más completa y funcional como root.
-
-```
-script /dev/null -c bash
-```
-
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/538c7475-4c47-4486-a1ac-0390c6fb346d)
-
-Maquina 100% hackeada.
 
