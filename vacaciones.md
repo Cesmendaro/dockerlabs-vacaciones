@@ -1,7 +1,7 @@
 ---
 Nombre de la máquina: Trust
 Sistema Operativo: Linux
-Dificultad: Muy Facil 🟢
+Dificultad: Facil 🟢
 Enlace de descarga: https://dockerlabs.es
 ---
 
@@ -13,7 +13,8 @@ Para comenzar, es necesario ubicarnos en la ruta donde hemos descargado y descom
 sudo bash auto_deploy.sh trust.tar
 ```
 
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/c16ba732-c73f-45e3-99f6-20418d084296)
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/0f57257c-8dd6-4a89-acac-94073fb9fe82)
+
 
 ## Nmap.
 
