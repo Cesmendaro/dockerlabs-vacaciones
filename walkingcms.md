@@ -121,7 +121,7 @@ export SHELL=bash
 
 ## Escalada de privilegios.
 
-Como "sudo -l" nos da error, procederemos a buscar archivos en el sistema que puedan ejecutarse con privilegios de root, es decir con el SUID activo, y por supuesto que los errores los mande al dev/null.
+Como "sudo -l" nos da error, procederemos a buscar archivos en el sistema que tengan el bit SUID activado, lo que les permitiría ejecutarse con privilegios de root, y por supuesto, enviar los errores al dev/null...
 
 ```
 find / -perm -4000  -type f 2>/dev/null
