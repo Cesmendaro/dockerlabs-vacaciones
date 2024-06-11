@@ -1,5 +1,5 @@
 ---
-Nombre de la máquina: WalkingCms
+Nombre de la máquina: WalkingCMS
 Sistema Operativo: Linux
 Dificultad: Facil 🟢
 Enlace de descarga: https://dockerlabs.es
