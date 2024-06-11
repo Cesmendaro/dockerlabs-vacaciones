@@ -119,6 +119,28 @@ export TERM=xterm
 export SHELL=bash
 ```
 
+## Escalada de privilegios.
+
+Como "sudo -l" nos da error, procederemos a buscar archivos en el sistema que puedan ejecutarse con privilegios de root, es decir con el SUID activo, y por supuesto que los errores los mande al dev/null.
+
+```
+find / -perm -4000  -type f 2>/dev/null
+```
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/889c22f9-d42b-497a-97d8-5eb1caca3540)
+
+Como podemos ver, disponemos de una lista de binarios que pueden ser ejecutados con privilegios de root. La idea es probar cada uno de ellos para determinar cuál nos resulta útil. Sin embargo, el ya muy conocido binario "env" está disponible, por lo que procederemos directamente a https://gtfobins.github.io/
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/eec695f8-f6c4-41ec-bf83-c80a51ad1dc4)
+
+Copiamos el codigo que nos dice en la seccion de SUID y copiamos dicho codigo pero estableciendo la ruta absluta del binario.
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/f082b4a9-731c-4617-94b5-6137aaaee3f0)
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/aeabde0f-4792-452f-823a-eaf698de0de1)
+
+Y como podemos ver, ya somos root.
+Maquina 100% hackeada.
 
 
 
