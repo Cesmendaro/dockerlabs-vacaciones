@@ -75,5 +75,28 @@ Ahora que disponemos del nombre de usuario y la contraseña, nos logueamos en di
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/9a41173f-b897-4dfa-8ea9-a8a4ed013b64)
 
+## Cargar código PHP y conseguir una reverse shell.
+
+Para lograr nuestro objetivo, necesitamos un script en PHP que nos permita establecer una conexión de shell inversa. Para ello, primero accedemos al sitio web https://www.revshells.com/ y copiaremos el codigo que nos genera luego de haber puesto la dirección IP de nuestra máquina atacante y el puerto al que estaremos escuchando, para este ejemplo yo usare la opcion "PHP PentestMonkey".
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/aa99d5f1-3d04-4f18-9c92-983a8db862c8)
+
+Ahora, necesitamos iniciar la escucha en el puerto 443 utilizando Netcat.
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/0092e71e-4424-4b95-af1e-5f50ad89729d)
+
+Después de iniciar la escucha en el puerto 443 con Netcat, nos dirigimos al panel de administración de WordPress. Una vez allí, cargamos el código en el editor del tema de la página. Es fundamental recordar que el script que hemos generado está en PHP, por lo que debemos elegir un archivo que sea compatible con este lenguaje para su correcta interpretación. En este caso, hemos seleccionado el archivo "functions.php", y podemos acceder a él a través de la ruta indicada por el título del editor, que sería "twentytwentytwo/functions.php".
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/63d97991-daac-4976-a7c4-069e72d763ef)
+
+
+
+
+
+
+
+
+
+
 
 
