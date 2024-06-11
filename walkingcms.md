@@ -47,8 +47,6 @@ sudo gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3
 
 Como podemos observar, se nos informa sobre la existencia del directorio "wordpress" con codigo de estado 301, Por consiguiente, procederemos a revisar su contenido para determinar su naturaleza y relevancia.
 
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/4c23b30c-e3c8-4b0e-9cb8-dc471e1e82a8)
-
 Al parecer, se trata de un blog sin mucha información relevante. Únicamente vemos un texto "Hola Mundo" que es un enlace a una entrada. Al acceder a dicha entrada, podemos observar que tenemos un nombre de usuario, "mario".
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/8a8f2a8c-6682-4b05-b248-af630282581b)
