@@ -53,9 +53,10 @@ Al parecer, se trata de un blog sin mucha información relevante. Únicamente ve
 
 Bien, contamos únicamente con un nombre de usuario, pero ningún panel de login para intentar un ataque de fuerza bruta. Por lo tanto, volvemos a realizar fuzzing, pero esta vez lo hacemos a partir del directorio "wordpress".
 
-![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/02fb98bf-e9ab-4aea-889b-394113649467)
-
 Es muy importante lo que nos ha encontrado el escaneo. No solo contamos con el panel de login predeterminado de WordPress activo, sino que también está activo el protocolo XML-RPC. Esto nos confirma que podremos realizar un ataque de fuerza bruta.
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/5d0e16a5-4bb7-41e3-a357-818c34756168)
+
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/bba021cc-d93e-4508-9295-c960a05356b6)
 
