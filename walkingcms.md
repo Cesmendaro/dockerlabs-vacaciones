@@ -49,18 +49,30 @@ Como podemos observar, se nos informa sobre la existencia del directorio "wordpr
 
 ![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/4c23b30c-e3c8-4b0e-9cb8-dc471e1e82a8)
 
-Al parecer, el archivo contiene un mensaje simple, pero menciona la existencia de un usuario llamado "Mario". En consecuencia, vamos a realizar un ataque de fuerza bruta con Hydra al protocolo SSH. Dado que el escaneo de Nmap también ha revelado el puerto 22 abierto.
+Al parecer, se trata de un blog sin mucha información relevante. Únicamente vemos un texto "Hola Mundo" que es un enlace a una entrada. Al acceder a dicha entrada, podemos observar que tenemos un nombre de usuario, "mario".
 
-## Hydra.
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/8a8f2a8c-6682-4b05-b248-af630282581b)
 
-Vamos a proceder con el ataque de fuerza bruta utilizando el diccionario de contraseñas "rockyou.txt", especificando el nombre de usuario encontrado anteriormente.
+Bien, contamos únicamente con un nombre de usuario, pero ningún panel de login para intentar un ataque de fuerza bruta. Por lo tanto, volvemos a realizar fuzzing, pero esta vez lo hacemos a partir del directorio "wordpress".
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/02fb98bf-e9ab-4aea-889b-394113649467)
+
+Es muy importante lo que nos ha encontrado el escaneo. No solo contamos con el panel de login predeterminado de WordPress activo, sino que también está activo el protocolo XML-RPC. Esto nos confirma que podremos realizar un ataque de fuerza bruta.
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/bba021cc-d93e-4508-9295-c960a05356b6)
+
+
+## Wpscan.
+
+Bien, procedemos con el ataque de fuerza bruta utilizando el diccionario de contraseñas "rockyou.txt", especificando el nombre de usuario encontrado anteriormente.
 
 ```
-sudo hydra -l mario -P /usr/share/wordlists/rockyou.txt ssh://172.17.0.2
+sudo wpscan --url http://172.17.0.2/wordpress/ -U mario -P /usr/share/wordlists/rockyou.txt
 ```
 
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/fe2496d4-32a5-43f1-b22b-48dae8526848)
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/456d83db-2529-4606-85b4-3a4b4b6ceb7a)
 
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/94c4ef3c-5dc7-4ba9-8925-28bab604fa22)
 
 Ahora que disponemos del nombre de usuario y la contraseña, procederemos a establecer una conexión SSH.
 
