@@ -59,7 +59,7 @@ Bien, si hacemos un recuento, contamos únicamente con un posible nombre de usua
 
 Es muy importante lo que nos ha encontrado el escaneo. No solo contamos con el panel de login predeterminado de WordPress activo, sino que también está activo el protocolo XML-RPC. Esto nos confirma que podremos realizar un ataque de fuerza bruta debido a que XML-RPC no tiene protección contra múltiples intentos de inicio de sesión.
 
-De todas formas, nuestro primer intento sera un ataque de fuerza bruta con la herramienta Wpscan al panel de autentificacion de Wordpress.
+De todas formas, nuestro primer intento será atacar con la herramienta wpscan al panel de login de Wordpress.
 
 ## Wpscan.
 
