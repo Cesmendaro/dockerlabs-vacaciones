@@ -24,14 +24,17 @@ Después de haber lanzado el entorno vulnerable, procedemos a realizar un escane
 nmap -p- --open -sS -sC -sV --min-rate 5000 -n -vvv -Pn 172.17.0.2
 ```
 
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/f175244f-74df-438e-8f73-75fbe3678345)
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/4590fff3-e38a-455e-9f36-5398b72d261f)
 
-El escaneo revela la existencia de dos puertos abiertos: el puerto 22, que corresponde al protocolo SSH, y el puerto 80, donde se está ejecutando un servidor Apache versión 2.4.57. Por consiguiente, procedemos a inspeccionar la aplicación web para determinar su contenido y funcionalidades.
+
+El escaneo revela la existencia del puerto 80 abierto, donde se está ejecutando un servidor Apache versión 2.4.57. Por consiguiente, procedemos a inspeccionar la aplicación web para determinar su contenido y funcionalidades.
 
 ![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/7cbb281a-b793-42f5-aa2b-609e3639673b)
 
 
 Hemos verificado que se trata de la plantilla predeterminada de Apache. Tras revisar su código fuente sin encontrar elementos destacables, es hora de proceder con el fuzzing.
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/5edfbc09-1ed0-41ce-8472-f04bb8b9887a)
 
 ## Fuzzing.
 
@@ -41,9 +44,10 @@ Lanzamos el escaneo de directorios utilizando el diccionario "directory-list-low
 sudo gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -u "http://172.17.0.2/" -x .php,.sh,.py,.txt
 ```
 
-![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/826a5a63-2e29-4b91-ab22-74cf415a8937)
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/7e2b2e6a-0827-40ba-9883-a95d8b825185)
 
-Como podemos observar, se nos informa sobre la existencia del archivo "secret.php", Por consiguiente, procederemos a revisar su contenido para determinar su naturaleza y relevancia.
+
+Como podemos observar, se nos informa sobre la existencia del directorio "wordpress" con codigo de estado 301, Por consiguiente, procederemos a revisar su contenido para determinar su naturaleza y relevancia.
 
 ![image](https://github.com/Cesmendaro/Dockerlabs.es/assets/153618246/4c23b30c-e3c8-4b0e-9cb8-dc471e1e82a8)
 
