@@ -75,7 +75,7 @@ Ahora que disponemos del nombre de usuario y la contraseña, nos logueamos en di
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/9a41173f-b897-4dfa-8ea9-a8a4ed013b64)
 
-## Cargar código PHP y conseguir una reverse shell.
+## Cargar script para conseguir una reverse shell.
 
 Para lograr nuestro objetivo, necesitamos un script en PHP que nos permita establecer una conexión de shell inversa. Para ello, primero accedemos al sitio web https://www.revshells.com/ y copiaremos el codigo que nos genera luego de haber puesto la dirección IP de nuestra máquina atacante y el puerto al que estaremos escuchando, para este ejemplo yo usare la opcion "PHP PentestMonkey".
 
