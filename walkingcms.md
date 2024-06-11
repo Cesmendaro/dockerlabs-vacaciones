@@ -83,18 +83,41 @@ Para lograr nuestro objetivo, necesitamos un script en PHP que nos permita estab
 
 Ahora, necesitamos iniciar la escucha en el puerto 443 utilizando Netcat.
 
+```
+sudo nc -nvlp 443
+```
+
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/0092e71e-4424-4b95-af1e-5f50ad89729d)
 
 Después de iniciar la escucha en el puerto 443 con Netcat, nos dirigimos al panel de administración de WordPress. Una vez allí, cargamos el código en el editor del tema de la página. Es fundamental recordar que el script que hemos generado está en PHP, por lo que debemos elegir un archivo que sea compatible con este lenguaje para su correcta interpretación. En este caso, hemos seleccionado el archivo "functions.php", y podemos acceder a él a través de la ruta indicada por el título del editor, que sería "twentytwentytwo/functions.php".
 
 ![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/63d97991-daac-4976-a7c4-069e72d763ef)
 
+Después de cargar el código en el archivo "functions.php" y guardarlo en el editor del tema de WordPress, accedemos a la URL correspondiente para que el script se ejecute y podamos recibir la shell inversa.
+
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/9d9bf9c9-88f5-40e5-975f-961b86d0ae22)
 
 
+![image](https://github.com/Cesmendaro/dockerlabs-vacaciones/assets/153618246/f926f014-81bc-40fb-a7c5-339f2885fbf5)
 
 
+## Tratamiento de la TTY.
 
-
+```
+script /dev/null -c bash
+```
+```
+stty raw -echo;fg
+```
+```
+reset xterm
+```
+```
+export TERM=xterm
+```
+```
+export SHELL=bash
+```
 
 
 
